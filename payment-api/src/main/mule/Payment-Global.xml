@@ -14,6 +14,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<db:my-sql-connection host="${db.host}" port="${db.port}" user="${db.user}" password="${db.password}" database="${db.database}" />
 	</db:config>
 	<configuration-properties doc:name="Configuration properties" doc:id="7792fc47-9886-41ec-8eb9-3c609013665a" file="Payment-DEV.yaml" />
+	<configuration doc:name="Configuration" doc:id="f8989f24-411f-4bdf-af64-2034e649648f" defaultErrorHandler-ref="Payment-GlobalError_Handler" />
 	<error-handler name="Payment-GlobalError_Handler" doc:id="556cf065-3fe6-4ff7-86e0-de63dea96183" >
 		<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="fa45c8d6-58c2-4e11-b6d4-920072f67bd8" when='#[error.errorType=="GETBYID:BAD_SQL_SYNTAX"]'>
 			<set-payload value='#["Error in getbyid flow"]' doc:name="Set Payload" doc:id="1adeec23-eac5-4a3e-bed0-80955c50b6b4" />

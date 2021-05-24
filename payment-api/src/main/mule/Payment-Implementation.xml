@@ -76,7 +76,7 @@ output application/json
 values(:customerNumber,:checkNumber,:paymentDate,:amount)]]></db:sql>
 			<db:input-parameters ><![CDATA[#[{
 	customerNumber: vars.customerNumber,
-	checkNumber: vars.checkNumber,
+	checkNumber: vars.checkNumber default "Abc2155451",
 	paymentDate: vars.paymentDate,
 	amount: vars.amount
 }]]]></db:input-parameters>
@@ -125,7 +125,7 @@ output application/json
 		<db:query-single doc:name="Payment-Database" doc:id="ca1036d8-cf94-4755-99b3-48a3e87f9897" config-ref="Database_Config">
 			<db:sql ><![CDATA[select * from Payments where customerNumber= :customerNumber;]]></db:sql>
 			<db:input-parameters ><![CDATA[#[{
-	customerNumber: vars.customerNumber
+	customerNumber: vars.customerNumber default 10003
 }]]]></db:input-parameters>
 		</db:query-single>
 		<choice doc:name="Choice" doc:id="7791c5b6-b08f-4c11-9271-b55cb1f44413" >
@@ -135,7 +135,7 @@ output application/json
 amount= :amount where customerNumber= :customerNumber;]]></db:sql>
 					<db:input-parameters ><![CDATA[#[{
 	customerNumber: vars.customerNumber,
-	checkNumber: vars.checkNumber,
+	checkNumber: vars.checkNumber default "AB1254",
 	paymentDate: vars.paymentDate,
 	amount: vars.amount
 }]]]></db:input-parameters>
